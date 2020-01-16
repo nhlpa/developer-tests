@@ -1,15 +1,10 @@
 USE [master];
 GO
 
-IF EXISTS (SELECT 1
-           FROM   [master].[sys].[databases]
-           WHERE  [name] = 'HOCKEY_API')
+IF EXISTS (SELECT 1 FROM   [master].[sys].[databases] WHERE  [name] = 'HOCKEY_API')
   BEGIN
     PRINT 'DROPPING HOCKEY_API';
-    ALTER DATABASE [HOCKEY_API]
-      SET SINGLE_USER
-      WITH ROLLBACK IMMEDIATE;
-
+    ALTER DATABASE [HOCKEY_API] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
     DROP DATABASE [HOCKEY_API];
   END;
 GO

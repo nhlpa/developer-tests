@@ -72,28 +72,27 @@ Trade player to a new team. Request body example:
 
 ### Database Schema
 ```sql
-CREATE TABLE `team` (
-        `team_code`     TEXT NOT NULL,
-        `team_name`     TEXT NOT NULL UNIQUE,
-        PRIMARY KEY(`team_code`)
-);
-CREATE TABLE `player` (
-        `player_id`     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        `last_name`     TEXT NOT NULL,
-        `first_name`    TEXT NOT NULL
-);
-CREATE TABLE `roster_transaction_type` (
-        `roster_transaction_type_id`    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        `label` TEXT NOT NULL
-);
-CREATE TABLE `roster_transaction` (
-        `roster_transaction_id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        `roster_transaction_type_id`    INTEGER NOT NULL,
-        `player_id`     INTEGER NOT NULL,
-        `team_code`     TEXT NOT NULL,
-        `effective_date`        TEXT NOT NULL,
-        FOREIGN KEY(`roster_transaction_type_id`) REFERENCES `roster_transaction_type`(`roster_transaction_type_id`),
-        FOREIGN KEY(`player_id`) REFERENCES `player`(`player_id`),
-        FOREIGN KEY(`team_code`) REFERENCES `team`(`team_code`)
-);
+CREATE TABLE [team] (
+			PRIMARY KEY ([team_code])
+    , [team_code] CHAR(3)      NOT NULL
+    , [team_name] NVARCHAR(16) NOT NULL UNIQUE);
+
+CREATE TABLE [player] (
+			PRIMARY KEY ([player_id])
+    , [player_id]  INT          NOT NULL IDENTITY
+    , [last_name]  NVARCHAR(32) NOT NULL
+    , [first_name] NVARCHAR(32) NOT NULL);
+
+CREATE TABLE [roster_transaction_type] (
+			PRIMARY KEY ([roster_transaction_type_id])
+    , [roster_transaction_type_id] INT          NOT NULL IDENTITY
+    , [label]                      NVARCHAR(16) NOT NULL);
+
+CREATE TABLE [roster_transaction] (
+			PRIMARY KEY ([roster_transaction_id])
+    , [roster_transaction_id]      INT      NOT NULL IDENTITY
+    , [roster_transaction_type_id] INT      NOT NULL FOREIGN KEY ([roster_transaction_type_id]) REFERENCES [roster_transaction_type] ([roster_transaction_type_id])
+    , [player_id]                  INT      NOT NULL FOREIGN KEY ([player_id]) REFERENCES [player] ([player_id])
+    , [team_code]                  CHAR(3)  NOT NULL FOREIGN KEY ([team_code]) REFERENCES [team] ([team_code])
+    , [effective_date]             DATETIME NOT NULL);
 ```
