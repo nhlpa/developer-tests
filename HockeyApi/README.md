@@ -15,7 +15,7 @@ A 3-on-3 hockey league is seeking a REST API to support their mobile app, for ma
 - A player cannot be declared healthy unless they were previously injured.
 - A player cannot be declare injured unless they were previously not injured.
 - A player cannot be in the league without being *signed*.
-- A playyer cannot be traded when *injured*.
+- A player cannot be traded when *injured*.
 ### Required Endpoints
 > Note: The `/team` endpoint has already been completed to demonstrate desired form, though it does not need to be considered final form. Feel free to optimize where desired.
 
