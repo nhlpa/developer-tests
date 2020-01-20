@@ -84,12 +84,12 @@ CREATE TABLE [player] (
     , [first_name] NVARCHAR(32) NOT NULL);
 
 CREATE TABLE [roster_transaction_type] (
-	  PRIMARY KEY ([roster_transaction_type_id])
+      PRIMARY KEY ([roster_transaction_type_id])
     , [roster_transaction_type_id] INT          NOT NULL IDENTITY
     , [label]                      NVARCHAR(16) NOT NULL);
 
 CREATE TABLE [roster_transaction] (
-	  PRIMARY KEY ([roster_transaction_id])
+      PRIMARY KEY ([roster_transaction_id])
     , [roster_transaction_id]      INT      NOT NULL IDENTITY
     , [roster_transaction_type_id] INT      NOT NULL FOREIGN KEY ([roster_transaction_type_id]) REFERENCES [roster_transaction_type] ([roster_transaction_type_id])
     , [player_id]                  INT      NOT NULL FOREIGN KEY ([player_id]) REFERENCES [player] ([player_id])
