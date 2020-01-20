@@ -73,23 +73,23 @@ Trade player to a new team. Request body example:
 ### Database Schema
 ```sql
 CREATE TABLE [team] (
-			PRIMARY KEY ([team_code])
+      PRIMARY KEY ([team_code])
     , [team_code] CHAR(3)      NOT NULL
     , [team_name] NVARCHAR(16) NOT NULL UNIQUE);
 
 CREATE TABLE [player] (
-			PRIMARY KEY ([player_id])
+      PRIMARY KEY ([player_id])
     , [player_id]  INT          NOT NULL IDENTITY
     , [last_name]  NVARCHAR(32) NOT NULL
     , [first_name] NVARCHAR(32) NOT NULL);
 
 CREATE TABLE [roster_transaction_type] (
-			PRIMARY KEY ([roster_transaction_type_id])
+	  PRIMARY KEY ([roster_transaction_type_id])
     , [roster_transaction_type_id] INT          NOT NULL IDENTITY
     , [label]                      NVARCHAR(16) NOT NULL);
 
 CREATE TABLE [roster_transaction] (
-			PRIMARY KEY ([roster_transaction_id])
+	  PRIMARY KEY ([roster_transaction_id])
     , [roster_transaction_id]      INT      NOT NULL IDENTITY
     , [roster_transaction_type_id] INT      NOT NULL FOREIGN KEY ([roster_transaction_type_id]) REFERENCES [roster_transaction_type] ([roster_transaction_type_id])
     , [player_id]                  INT      NOT NULL FOREIGN KEY ([player_id]) REFERENCES [player] ([player_id])
