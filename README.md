@@ -6,15 +6,16 @@ Solutions are welcome in whatever programming language you are most comfortable 
 
 ## Objectives
 
-> For the purpose of this task `System.Console` output is perfectly acceptable.
 
 1. Programmatically download the file from GitHub.
 2. Parse results and aggregate to produce a single object per team.
-   - Note: The scoring system is shown below.
-3. Output results for the following: 
+    - Note: The scoring system is shown below.
+3. Output results for the following:     
     a. Teams in descending order by **total points**.
     b. Top 5 teams by **goal differential**.
     c. Top 5 teams by **shooting percentage**.
+
+> For the purpose of this task a simple, naive download and `System.Console` output is perfectly acceptable.
 
 ## Scoring System 
 
@@ -24,7 +25,7 @@ Solutions are welcome in whatever programming language you are most comfortable 
 | Overtime loss | 1 |
 | Loss | 0 |
 
-** Overtime is defined as any game which *exceeds 3 periods*.
+> Overtime is defined as any game which *exceeds 3 periods*.
 
 ## Formulas
 
