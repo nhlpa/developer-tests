@@ -1,13 +1,33 @@
-# NHLPA Developer Tests
+# NHLPA Developer Test
 
-This repo contains the source for both the [back](https://github.com/nhlpa/developer-tests/tree/master/HockeyApi) and [front](https://github.com/nhlpa/developer-tests/tree/master/JavaScriptAssessment) end NHLPA developer assessments. The projects are simple, but challenging take home tests, intended to assess core competencies within ASP.NET, SQL Server and JavaScript. Using external libraries is *not permitted* in either assessment.
+This repo contains a tab-delimited file of game results for an entire regulation season called `team_stats.txt`. The object is to parse and aggregate the results of this file.
 
-## Server-side Assessment
-A 3-on-3 hockey league is seeking a REST API to support their mobile app, for managing team rosters.
+Solutions are welcome in whatever programming language you are most comfortable with, though preferred in either C#, F# or PowerShell.
 
-[View Assessment](https://github.com/nhlpa/developer-tests/tree/master/HockeyApi)
+## Objectives
 
-## Front-end Assessment
-A simple HTML document, intended to be modified after load, using pure JavaScript.
+> For the purpose of this task `System.Console` output is perfectly acceptable.
 
-[View Assessment](https://github.com/nhlpa/developer-tests/tree/master/JavaScriptAssessment)
+1. Programmatically download the file from GitHub.
+2. Parse results and aggregate to produce a single object per team.
+   - Note: The scoring system is shown below.
+3. Output results for the following: 
+    a. Teams in descending order by **total points**.
+    b. Top 5 teams by **goal differential**.
+    c. Top 5 teams by **shooting percentage**.
+
+## Scoring System 
+
+| Outcome | Points |
+|---|---|
+| Regulation win | 2 |
+| Overtime loss | 1 |
+| Loss | 0 |
+
+** Overtime is defined as any game which *exceeds 3 periods*.
+
+## Formulas
+
+`Goal Differential = Goals For - Goals Against`
+
+`Shooting Percentage = Goals For / Shots For`
